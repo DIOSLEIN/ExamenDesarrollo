@@ -1,5 +1,35 @@
 {% extends 'base.html' %}
 <!-- ////////////////////////////////////////////////// -->
 {% block content %}
-    <h1> Bienvenido </h1>
+
+
+<!-- Page Content -->
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <h1 class="font-weight-light">Bienvenido a Manage Money</h1>
+      
+      
+
+      <div class="jumbotron">
+        <h1 class="display-4">¿Que puedes hacer?</h1>
+        <p class="lead">
+          En este sitio puedes elaborar listas de compra con la finalidad
+          de ordenar tus presupuestos de gastos y mejorar sus finanzas 
+        </p>
+        <hr class="my-4" />
+        <p>
+        Registrate y comienza a utilizar nuestros servicios 
+        </p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url 'gestion_usuario:registrar' %}" role="button"
+            >¡Comieza ya!</a
+          >
+        </p>
+      </div>
+      <div style="height: 50px"></div>
+      
+    </div>
+  </div>
+</div>
 {% endblock %}
