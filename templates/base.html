@@ -1,0 +1,52 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+
+ <head>
+    <script src="{% static 'js/jquery-3.4.1.js' %}"> </script>
+    <script src="{% static 'js/bootstrap.js' %}"> </script>
+    <link href="{% static  'css/bootstrap.css' %}" rel="stylesheet">
+    {% block head %}
+    {% endblock %}
+
+ </head>
+
+ <body>
+     <div class="container">
+     <nav id="cont-nav-color" class="navbar navbar-expand-lg col-sm-12">
+        <a class="navbar-brand" href="#">Ejemplo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegadorContenido"
+            aria-controls="navegadorContenido" aria-expanded="false" aria-label="Navegacion">
+            <i class="icon ion-md-menu text-dark"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navegadorContenido">
+            <ul class="navbar-nav ml-auto">
+              {% if not request.user.is_authenticated %}
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="{% url 'gestion_usuario:index' %}">Inicio</a>
+                </li>
+                
+                <li class="nav-item mx-1">
+                  <a class="nav-link" href="{% url 'gestion_usuario:login' %}">Iniciar_sesión</a>
+                </li>
+                <li class="nav-item mx-1">
+                  <a class="nav-link" href="{% url 'gestion_usuario:registrar' %}">Registrar</a>
+                </li>
+              {% else %}
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="{% url 'gestion_usuario:presupuesto' %}">presupuesto</a>
+                </li>
+                <li class="nav-item mx-1">
+                  <a class="nav-link" href="{% url 'gestion_usuario:index' %}">{{ user.username }}</a>
+                </li>
+                <li class="nav-item mx-1">
+                  <a class="nav-link" href="{% url 'gestion_usuario:logout' %}">Cerrar_sesión</a>
+                </li>
+              {% endif %}
+            </ul>
+        </div> 
+     </nav>
+        {% block content %}
+        {% endblock %}
+     </div>
+ </body>
