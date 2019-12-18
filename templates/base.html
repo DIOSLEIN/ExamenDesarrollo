@@ -33,8 +33,9 @@
                   <a class="nav-link" href="{% url 'gestion_usuario:registrar' %}">Registrar</a>
                 </li>
               {% else %}
-                <li class="nav-item mx-2">
-                  <a class="nav-link" href="{% url 'gestion_usuario:presupuesto' %}">presupuesto</a>
+
+                <li class="nav-item mx-1">
+                  <a class="nav-link" href="{% url 'gestion_usuario:add' %}">Agregar Producto</a>
                 </li>
                 <li class="nav-item mx-1">
                   <a class="nav-link" href="{% url 'gestion_usuario:index' %}">{{ user.username }}</a>
@@ -42,6 +43,7 @@
                 <li class="nav-item mx-1">
                   <a class="nav-link" href="{% url 'gestion_usuario:logout' %}">Cerrar_sesión</a>
                 </li>
+                
               {% endif %}
             </ul>
         </div> 

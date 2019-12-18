@@ -7,6 +7,10 @@ urlpatterns = [
     url('registrar/', views.registrar, name='registrar'),
     url('login/', views.usuario_login, name='login'),
     url('logout/', views.usuario_logout, name='logout'),
-    url('presupuesto/', views.presupuesto, name='presupuesto'),
+    path('add', views.add, name= 'add'),
+    
+    
+    
+    
     url('', views.index, name='index')
 ]

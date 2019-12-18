@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-from .forms import RegistrarForm, PerfilUsuarioForm
+from .forms import RegistrarForm, PerfilUsuarioForm,ProductoForm
 
 # Cierre de sesion
 
@@ -80,6 +80,29 @@ def registrar(request):
                    'profile_form': profile_form,
                    'registrado': registrado})
 
-def presupuesto(request):
-    return render(request, 'presupuestador/presupuesto.html', {})    
-       
+ 
+
+
+
+
+def add(request):
+    # Creamos un formulario vacío
+    form = ProductoForm()
+
+    # Comprobamos si se ha enviado el formulario
+    if request.method == "POST":
+        # Añadimos los datos recibidos al formulario
+        form = ProductoForm(request.POST)
+        # Si el formulario es válido...
+        if form.is_valid():
+            # Guardamos el formulario pero sin confirmarlo,
+            # así conseguiremos una instancia para manejarla
+            instancia = form.save(commit=False)
+            # Podemos guardarla cuando queramos
+            instancia.save()
+            # Después de guardar redireccionamos a la lista
+            return redirect('/')
+
+    # Si llegamos al final renderizamos el formulario
+    return render(request, "presupuestador/add.html", {'form': form})
+

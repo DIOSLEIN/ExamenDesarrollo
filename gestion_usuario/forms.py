@@ -2,26 +2,19 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import PerfilUsuario
 from .models import Producto
+from django.forms import ModelForm
 
-class RegistrarProducto(forms.ModelForm):
-    class Meta():
+
+
+
+class ProductoForm(ModelForm):
+    class Meta:
         model = Producto
-        fields = ('nombreProducto',
-                'precioProducto',
-                'cantidad',
-                )
-        labels = {
-            'nombreProducto': 'Nombre',
-            'precioProducto': 'Valor',
-            'cantidad': 'Cantidad',
-        }
+        fields = ['nombreproducto','precioproducto','cantidad']
+                
+       
 
-    # Define el class="form-control" en los labels del formulario
-    def init(self, args, **kwargs):
-        super(RegistrarProducto, self).__init__(args, **kwargs)
-        self.fields['nombreProducto'].widget.attrs.update({'class': 'form-control'})
-        self.fields['precioProducto'].widget.attrs.update({'class': 'form-control'})
-        self.fields['cantidad'].widget.attrs.update({'class': 'form-control'})
+    
 
 
 class   PerfilUsuarioForm(forms.ModelForm):

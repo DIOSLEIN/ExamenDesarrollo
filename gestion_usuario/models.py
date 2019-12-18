@@ -8,10 +8,13 @@ class PerfilUsuario(models.Model):
     def __str__(self):
         return self.user.username
 
+
+
+
+
 class Producto(models.Model):
-    nombreProducto = models.CharField(max_length=20)
-    precioProducto = models.IntegerField()
+    nombreproducto = models.CharField(max_length=100)
     cantidad = models.IntegerField()
-    def __str__(self):
-        return self.name
+    precioproducto = models.IntegerField()
+    
     
