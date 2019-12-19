@@ -6,6 +6,9 @@ from .forms import RegistrarForm, PerfilUsuarioForm,ProductoForm, Producto
 
 # Cierre de sesion
 
+def dolar(request):
+    return render(request, 'presupuestador/api_dolar.html', {})
+
 def usuario_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('gestion_usuario:index'))

@@ -19,18 +19,24 @@
         </p>
         <hr class="my-4" />
         <p>
-        Registrate y comienza a utilizar nuestros servicios 
+        
         </p>
+        {% if not request.user.is_authenticated %}
         <p class="lead">
           <a class="btn btn-primary btn-lg" href="{% url 'gestion_usuario:registrar' %}" role="button"
-            >¡Comieza ya!</a
-          >
+            >¡Comienza ya! </a>
         </p>
+        {% else %}
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url 'gestion_usuario:add' %}" role="button"
+            >¡Agrega un Producto!</a>
+        </p>
+        {% endif %}
+        
+
       </div>
-      <div style="height: 50px"></div>
-      <li class="nav-item mx-1">
-        <a  href="{% url 'gestion_usuario:logout' %}">API dolar</a>
-      </li>
+      
+      
     </div>
   </div>
 </div>

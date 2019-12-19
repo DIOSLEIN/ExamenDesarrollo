@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--- JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>API</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section">
+            <button type="button" class="btn btn-primary"
+             id="dolar">Mostrar</button>
+             <div>Fuente:
+                <p id="autor"></p>
+            </div>
+        </div>
+        
+        <div>
+            
+            <div>
+                <p id="nombre">Tipo Moneda</p>
+            </div>
+        </div>
+        <div><p id="desplegar-tabla"></p></div>
+        
+    </div>
+    <script src="/static/js/script_indicadores.js"></script>
+</body>
+</html>
+
+
+
+{% endblock %}
