@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-from .forms import RegistrarForm, PerfilUsuarioForm,ProductoForm
+from .forms import RegistrarForm, PerfilUsuarioForm,ProductoForm, Producto
 
 # Cierre de sesion
 
@@ -81,9 +81,15 @@ def registrar(request):
                    'registrado': registrado})
 
  
-
-
-
+def listar(request):
+    if request.user.is_authenticated:
+        # creamos una colección la cual carga TODOS los registos
+        productos = Producto.objects.all()
+        # renderizamos la colección en el template
+        return render(request,
+            "presupuestador/listar.html", {'productos': productos})
+    else:
+        return render(request, 'principal.html', {})
 
 def add(request):
     # Creamos un formulario vacío
@@ -101,7 +107,8 @@ def add(request):
             # Podemos guardarla cuando queramos
             instancia.save()
             # Después de guardar redireccionamos a la lista
-            return redirect('/')
+            return redirect('presupuestador/listar.html')
+            
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "presupuestador/add.html", {'form': form})

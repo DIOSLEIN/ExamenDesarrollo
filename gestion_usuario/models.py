@@ -11,10 +11,12 @@ class PerfilUsuario(models.Model):
 
 
 
-
 class Producto(models.Model):
     nombreproducto = models.CharField(max_length=100)
-    cantidad = models.IntegerField()
+    costopresupuestado = models.IntegerField()
     precioproducto = models.IntegerField()
+    tienda = models.CharField(max_length=100)
+    nota = models.CharField(max_length=200)
+
     
     

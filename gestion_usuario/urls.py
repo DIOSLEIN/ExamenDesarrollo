@@ -8,7 +8,7 @@ urlpatterns = [
     url('login/', views.usuario_login, name='login'),
     url('logout/', views.usuario_logout, name='logout'),
     path('add', views.add, name= 'add'),
-    
+    path('listar',views.listar, name='listar'),
     
     
     

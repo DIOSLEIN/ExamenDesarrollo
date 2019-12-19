@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<!-- ////////////////////////////////////////////////// -->
+{% block content %}
+    <br>
+    
+    <h1 class="display-3">Lista de productos</h1>
+
+    
+    <br>    
+    {{ mensaje }}
+    <br>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+            <th>Nombre</th>
+            <th>Valor Real</th>
+            <th>Valor Presupuestado</th>
+            <th>Local Procedencia</th>
+            <th>Comentario</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for s in productos %}
+            <tr>
+            <td>{{ s.nombreproducto}}</td>
+            <td>{{ s.precioproducto}}</td>
+            <td>{{ s.costopresupuestado}}</td>
+            <td>{{ s.tienda}}</td>
+            <td>{{ s.nota}}</td>
+            
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
+<!-- ////////////////////////////////////////////////// -->

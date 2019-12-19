@@ -10,7 +10,22 @@ from django.forms import ModelForm
 class ProductoForm(ModelForm):
     class Meta:
         model = Producto
-        fields = ['nombreproducto','precioproducto','cantidad']
+        fields = ['nombreproducto','precioproducto','costopresupuestado','tienda','nota']
+        labels = {
+            'nombreproducto': 'Nombre del Producto',
+            'precioproducto': 'Precio',
+            'costopresupuestado': 'Costo presupuestado',
+            'tienda':'Local procedencia',
+            'nota': 'Comentario',
+        }
+    def __init__(self, *args, **kwargs):
+        super(ProductoForm, self).__init__(*args, **kwargs)
+        self.fields['nombreproducto'].widget.attrs.update({'class': 'form-control'})
+        self.fields['precioproducto'].widget.attrs.update({'class': 'form-control'})
+        self.fields['costopresupuestado'].widget.attrs.update({'class': 'form-control'})   
+        self.fields['tienda'].widget.attrs.update({'class': 'form-control'})
+        self.fields['nota'].widget.attrs.update({'class': 'form-control'}) 
+                
                 
        
 
